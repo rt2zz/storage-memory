@@ -1,8 +1,10 @@
 {
-  "name": "atom-cache",
+  "name": "storage-memory",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "JS Memory Storage",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "repository": "rt2zz/storage-memory",
   "scripts": {
     "build": "npm run flow-copy && npm run build:commonjs && npm run build:es",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
@@ -19,7 +21,14 @@
       "git add"
     ]
   },
-  "author": "",
+  "ava": {
+    "require": [
+      "babel-polyfill",
+      "babel-register"
+    ],
+    "babel": "inherit"
+  },
+  "author": "rt2zz",
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.25.0",
@@ -31,6 +40,10 @@
     "husky": "^0.14.3",
     "lint-staged": "^6.1.0",
     "prettier": "^1.10.2",
+    "redux-persist-node-storage": "^2.0.0",
     "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "cross-env": "^5.1.3"
   }
 }
